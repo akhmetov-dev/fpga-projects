@@ -1,0 +1,5 @@
+
+State Machine - |blink|led_status
+Name led_status.01 
+led_status.00 0 
+led_status.01 1 

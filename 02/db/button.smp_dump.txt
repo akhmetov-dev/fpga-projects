@@ -1,0 +1,5 @@
+
+State Machine - |button|cur_status
+Name cur_status.01 
+cur_status.00 0 
+cur_status.01 1 

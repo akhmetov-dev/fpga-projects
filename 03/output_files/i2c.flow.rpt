@@ -1,6 +1,6 @@
 Flow report for i2c
-Thu Apr 16 13:26:59 2020
-Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Thu Apr 16 19:02:01 2020
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -21,9 +21,9 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2019  Intel Corporation. All rights reserved.
+Copyright (C) 2018  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -33,25 +33,24 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+refer to the applicable agreement for further details.
 
 
 
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Apr 16 13:26:56 2020       ;
-; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
+; Flow Status                        ; Successful - Thu Apr 16 19:01:57 2020       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; i2c                                         ;
 ; Top-level Entity Name              ; i2c                                         ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE6E22C8                                 ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 711 / 6,272 ( 11 % )                        ;
-;     Total combinational functions  ; 523 / 6,272 ( 8 % )                         ;
-;     Dedicated logic registers      ; 520 / 6,272 ( 8 % )                         ;
-; Total registers                    ; 520                                         ;
+; Total logic elements               ; 710 / 6,272 ( 11 % )                        ;
+;     Total combinational functions  ; 525 / 6,272 ( 8 % )                         ;
+;     Dedicated logic registers      ; 521 / 6,272 ( 8 % )                         ;
+; Total registers                    ; 521                                         ;
 ; Total pins                         ; 4 / 92 ( 4 % )                              ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 16,384 / 276,480 ( 6 % )                    ;
@@ -65,7 +64,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/16/2020 13:26:15 ;
+; Start date & time ; 04/16/2020 19:00:50 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; i2c                 ;
 +-------------------+---------------------+
@@ -76,7 +75,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+-----------------------------------------------------------+---------------+-------------+------------------+
 ; Assignment Name                     ; Value                                                     ; Default Value ; Entity Name ; Section Id       ;
 +-------------------------------------+-----------------------------------------------------------+---------------+-------------+------------------+
-; COMPILER_SIGNATURE_ID               ; 238368715116367.158703277507032                           ; --            ; --          ; --               ;
+; COMPILER_SIGNATURE_ID               ; 123478090569650.158705285010556                           ; --            ; --          ; --               ;
 ; ENABLE_SIGNALTAP                    ; On                                                        ; --            ; --          ; --               ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                        ; --            ; --          ; --               ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                         ; --            ; --          ; --               ;
@@ -122,12 +121,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:30     ; 1.0                     ; 4828 MB             ; 00:00:54                           ;
-; Partition Merge      ; 00:00:00     ; 1.0                     ; 4696 MB             ; 00:00:01                           ;
-; Fitter               ; 00:00:05     ; 1.0                     ; 5245 MB             ; 00:00:05                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4691 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.1                     ; 4747 MB             ; 00:00:02                           ;
-; Total                ; 00:00:38     ; --                      ; --                  ; 00:01:03                           ;
+; Analysis & Synthesis ; 00:00:52     ; 1.0                     ; 4843 MB             ; 00:01:26                           ;
+; Fitter               ; 00:00:07     ; 1.0                     ; 5236 MB             ; 00:00:09                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4678 MB             ; 00:00:02                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.0                     ; 4740 MB             ; 00:00:03                           ;
+; Total                ; 00:01:04     ; --                      ; --                  ; 00:01:40                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -136,11 +134,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-3JCT1GR  ; Windows 10 ; 10.0       ; x86_64         ;
-; Partition Merge      ; DESKTOP-3JCT1GR  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-3JCT1GR  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-3JCT1GR  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-3JCT1GR  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; DESKTOP-BEQMIUD  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-BEQMIUD  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-BEQMIUD  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-BEQMIUD  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -148,7 +145,6 @@ https://fpgasoftware.intel.com/eula.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off i2c -c i2c
-quartus_cdb --read_settings_files=off --write_settings_files=off i2c -c i2c --merge=on
 quartus_fit --read_settings_files=off --write_settings_files=off i2c -c i2c
 quartus_asm --read_settings_files=off --write_settings_files=off i2c -c i2c
 quartus_sta i2c -c i2c

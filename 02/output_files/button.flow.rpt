@@ -1,6 +1,6 @@
 Flow report for button
-Wed Apr 15 18:36:18 2020
-Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+Thu Apr 16 18:28:09 2020
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
 ---------------------
@@ -21,9 +21,9 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2019  Intel Corporation. All rights reserved.
+Copyright (C) 2018  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -33,16 +33,15 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+refer to the applicable agreement for further details.
 
 
 
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Wed Apr 15 18:36:15 2020       ;
-; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
+; Flow Status                        ; Successful - Thu Apr 16 18:28:04 2020       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; button                                      ;
 ; Top-level Entity Name              ; button                                      ;
 ; Family                             ; Cyclone IV E                                ;
@@ -65,7 +64,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/15/2020 18:35:58 ;
+; Start date & time ; 04/16/2020 18:27:11 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; button              ;
 +-------------------+---------------------+
@@ -76,7 +75,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 238368715116367.158696495715760        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 123478090569650.158705083109728        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --         ;
@@ -92,11 +91,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4735 MB             ; 00:00:24                           ;
-; Fitter               ; 00:00:04     ; 1.0                     ; 5237 MB             ; 00:00:04                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4688 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4738 MB             ; 00:00:02                           ;
-; Total                ; 00:00:18     ; --                      ; --                  ; 00:00:31                           ;
+; Analysis & Synthesis ; 00:00:22     ; 1.0                     ; 4738 MB             ; 00:00:39                           ;
+; Fitter               ; 00:00:19     ; 1.0                     ; 5225 MB             ; 00:00:08                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 4674 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:04     ; 1.0                     ; 4729 MB             ; 00:00:02                           ;
+; Total                ; 00:00:48     ; --                      ; --                  ; 00:00:50                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -105,10 +104,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-3JCT1GR  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-3JCT1GR  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-3JCT1GR  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-3JCT1GR  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; DESKTOP-BEQMIUD  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-BEQMIUD  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-BEQMIUD  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-BEQMIUD  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

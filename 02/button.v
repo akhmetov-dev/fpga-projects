@@ -74,10 +74,6 @@ begin
 	end
 end
 
-
-
-
-
 assign led = led_status;
 
 endmodule

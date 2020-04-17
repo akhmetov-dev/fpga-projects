@@ -42,7 +42,7 @@ reset => addr[4].ENA
 reset => addr[5].ENA
 reset => addr[6].ENA
 reset => scl~reg0.ENA
-scl << scl~reg0.DB_MAX_OUTPUT_PORT_TYPE
-sda << sda~reg0.DB_MAX_OUTPUT_PORT_TYPE
+scl <= scl~reg0.DB_MAX_OUTPUT_PORT_TYPE
+sda <= sda~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

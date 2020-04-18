@@ -4,15 +4,39 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "led_1",
+					"name" : "led1",
 					"strict" : false
 				},
 				{
-					"name" : "led_2",
+					"name" : "led2",
+					"strict" : false
+				},
+				{
+					"name" : "led3",
+					"strict" : false
+				},
+				{
+					"name" : "led4",
+					"strict" : false
+				},
+				{
+					"name" : "led5",
+					"strict" : false
+				},
+				{
+					"name" : "led6",
+					"strict" : false
+				},
+				{
+					"name" : "led7",
 					"strict" : false
 				},
 				{
 					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "button",
 					"strict" : false
 				}
 			]

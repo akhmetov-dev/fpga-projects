@@ -1,0 +1,26 @@
+|seven_segment
+clk => led_status[0].CLK
+clk => led_status[1].CLK
+clk => led_status[2].CLK
+clk => led_status[3].CLK
+clk => led_status[4].CLK
+clk => led_status[5].CLK
+clk => led_status[6].CLK
+clk => led_status[7].CLK
+button => led_status[6].DATAIN
+button => led_status[5].DATAIN
+button => led_status[3].DATAIN
+button => led_status[2].DATAIN
+button => led_status[1].DATAIN
+button => led_status[0].DATAIN
+led1 <= led_status[0].DB_MAX_OUTPUT_PORT_TYPE
+led2 <= led_status[1].DB_MAX_OUTPUT_PORT_TYPE
+led3 <= led_status[2].DB_MAX_OUTPUT_PORT_TYPE
+led4 <= led_status[3].DB_MAX_OUTPUT_PORT_TYPE
+led5 <= led_status[4].DB_MAX_OUTPUT_PORT_TYPE
+led6 <= led_status[5].DB_MAX_OUTPUT_PORT_TYPE
+led7 <= led_status[6].DB_MAX_OUTPUT_PORT_TYPE
+led8 <= led_status[7].DB_MAX_OUTPUT_PORT_TYPE
+led_control <= <GND>
+
+

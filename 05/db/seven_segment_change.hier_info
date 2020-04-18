@@ -1,0 +1,33 @@
+|seven_segment_change
+clk => led_flag.CLK
+clk => counter_sec[0].CLK
+clk => counter_sec[1].CLK
+clk => counter_sec[2].CLK
+clk => counter_sec[3].CLK
+clk => counter_sec[4].CLK
+clk => counter_sec[5].CLK
+clk => counter_sec[6].CLK
+clk => counter_sec[7].CLK
+clk => counter_sec[8].CLK
+clk => counter_sec[9].CLK
+clk => counter_sec[10].CLK
+clk => counter_sec[11].CLK
+clk => counter_sec[12].CLK
+clk => counter_sec[13].CLK
+clk => counter_sec[14].CLK
+clk => counter_sec[15].CLK
+clk => counter_sec[16].CLK
+clk => counter_sec[17].CLK
+clk => counter_sec[18].CLK
+clk => counter_sec[19].CLK
+clk => counter_sec[20].CLK
+clk => counter_sec[21].CLK
+clk => counter_sec[22].CLK
+clk => counter_sec[23].CLK
+clk => counter_sec[24].CLK
+clk => counter_sec[25].CLK
+button => ~NO_FANOUT~
+led_1 <= led_flag.DB_MAX_OUTPUT_PORT_TYPE
+led_2 <= led_flag.DB_MAX_OUTPUT_PORT_TYPE
+
+

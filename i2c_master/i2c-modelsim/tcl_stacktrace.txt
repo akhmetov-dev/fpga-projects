@@ -1,0 +1,7 @@
+Mon May 25 22:55:22 AST 2020
+Trace back: can't read "ProjectFiles(D:/fpga-projects/i2c_master/i2c-modelsim/i2c_master.vhd)": no such element in array
+    while executing
+".vcop Eval Project::compileSelectedFiles"
+    (menu invoke)
+  <2:D:/Programs/Quartus_Prime/modelsim_ase/win32aloem/tk8.5/bgerror.tcl:92: ::tkerror {can't read "ProjectFiles(D:/fpga-projects/i2c_master/i2c-modelsim/i2c_master.vhd)": no such element in array}
+  <1:eval:1: ::tk::dialog::error::bgerror {can't read "ProjectFiles(D:/fpga-projects/i2c_master/i2c-modelsim/i2c_master.vhd)": no such element in array}

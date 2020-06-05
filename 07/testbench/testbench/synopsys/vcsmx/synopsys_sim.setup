@@ -1,0 +1,16 @@
+
+WORK > DEFAULT
+DEFAULT:                   ./libraries/work/                     
+work:                      ./libraries/work/                     
+altera_common_sv_packages: ./libraries/altera_common_sv_packages/
+rst_controller:            ./libraries/rst_controller/           
+rs232_0:                   ./libraries/rs232_0/                  
+unsaved_inst_reset_bfm:    ./libraries/unsaved_inst_reset_bfm/   
+unsaved_inst_clk_bfm:      ./libraries/unsaved_inst_clk_bfm/     
+unsaved_inst:              ./libraries/unsaved_inst/             
+altera_ver:                ./libraries/altera_ver/               
+lpm_ver:                   ./libraries/lpm_ver/                  
+sgate_ver:                 ./libraries/sgate_ver/                
+altera_mf_ver:             ./libraries/altera_mf_ver/            
+altera_lnsim_ver:          ./libraries/altera_lnsim_ver/         
+cycloneive_ver:            ./libraries/cycloneive_ver/           

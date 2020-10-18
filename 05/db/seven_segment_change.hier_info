@@ -59,14 +59,14 @@ button => counter.OUTPUTSELECT
 button => counter.OUTPUTSELECT
 button => counter.OUTPUTSELECT
 button => counter.OUTPUTSELECT
-led1 << led1~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led2 << led2~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led3 << led3~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led4 << led4~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led5 << led5~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led6 << led6~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led7 << led7~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led8 << led8~reg0.DB_MAX_OUTPUT_PORT_TYPE
-led_control << <GND>
+led1 <= led1~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led2 <= led2~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led3 <= led3~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led4 <= led4~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led5 <= led5~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led6 <= led6~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led7 <= led7~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led8 <= led8~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led_control <= <GND>
 
 

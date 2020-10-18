@@ -1,0 +1,247 @@
+//
+//simplest low speed USB CORE function
+//
+
+module ls_usb_core(
+
+    //clock should be 5Mhz
+    input wire clk,
+
+    input wire EOP,
+    input wire [7:0]data,
+    input wire wre,
+
+    input wire [3:0]rbyte_cnt,
+    input wire usb_reset,
+
+    input wire show_next,
+
+    input wire [7:0]pkt_byte,
+    input wire pkt_byte_ready,
+    input wire last_pkt_byte_in,
+    
+    input wire [3:0]poll_data,
+    
+    output reg [7:0]sbyte,
+    output reg start_pkt,
+    output reg last_pkt_byte,
+    output reg [7:0]leds,
+    output reg [8:0]ufm_addr,
+    output reg ufm_addr_wr,
+    output reg ufm_addr_inc,
+    output wire test
+    );
+
+assign test = token_in;
+
+reg [3:0]poll_data_f;
+always @(posedge clk)
+    poll_data_f <= poll_data;
+     
+//PID of receiving packet
+reg [3:0]pid;
+
+//decode PID value for current packet
+wire pid_setup; assign pid_setup = (pid==4'hD); //0x2D
+wire pid_in;     assign pid_in      = (pid==4'h9); //0x69
+wire pid_out;     assign pid_out      = (pid==4'h1); //0xE1
+wire pid_data0; assign pid_data0 = (pid==4'h3); //0xC3
+wire pid_data1; assign pid_data1 = (pid==4'hB); //0x4B
+
+wire pid_token; assign pid_token = pid_setup | pid_in | pid_out;
+wire pid_data;  assign pid_data  = pid_data0 | pid_data1;
+
+//register keeps our device address
+reg [6:0]my_addr;
+
+//flag mean transaction is our
+reg addr_ok;
+
+reg token_setup;
+reg token_in;
+reg token_out;
+reg endp;
+
+//remember PID
+always @(posedge clk)
+begin
+    if( (rbyte_cnt==4'h1) & wre)
+        pid <= data[3:0];    //store PID of currently receiving packet
+
+    //check address of current transaction
+    if( (rbyte_cnt==4'h2) & wre & pid_token)
+    begin
+        addr_ok <= ( data[6:0]==my_addr || (data[6:0]==0 && addr_zero_ok) );
+        endp <= data[7];
+    end
+
+    //save corrent token if neccessary
+    if( EOP & pid_token )
+    begin
+        token_setup <= pid_setup & addr_ok;
+        token_in    <= pid_in    & addr_ok;
+        token_out   <= pid_out   & addr_ok;
+    end
+    else
+    if(start_pkt)
+    begin
+        token_setup <= 1'b0;
+        token_in    <= 1'b0;
+        token_out   <= 1'b0;
+    end
+end
+
+//toggle values during IN transfers in SETUP transactions
+reg [2:0]setup_toggle; //how many transfers for descriptors? now limitation is 4...
+always @(posedge clk)
+begin
+    //just after EOP check last PIDs
+    if(pid_setup)
+        setup_toggle <= 3'b000;
+    else
+    if((rbyte_cnt==4'h1) & wre & (data[3:0]==2) ) //increment toggle only on ACK from host
+        setup_toggle <= setup_toggle + 1'b1;
+end
+
+reg toggle;
+always @(posedge clk)
+begin
+    if((rbyte_cnt==4'h1) & wre & (data[3:0]==2)&endp ) //increment toggle only on ACK from host
+        toggle <= ~toggle;
+end
+
+//received setup packet
+reg [7:0]setup_type;
+reg [7:0]setup_request;
+reg [7:0]setup_value0;
+reg [7:0]setup_value1;
+reg [7:0]setup_index0;
+reg [7:0]setup_index1;
+reg [7:0]setup_len0;
+reg [7:0]setup_len1;
+
+//receive setup packet
+always @(posedge clk)
+begin    
+    if( (rbyte_cnt==4'h2) & wre & token_out)
+        leds <= data;
+        
+    if( (rbyte_cnt==4'h2) & wre & token_setup)
+        setup_type <= data;
+        
+    if( (rbyte_cnt==4'h3) & wre & token_setup)
+        setup_request <= data;
+
+    if( (rbyte_cnt==4'h4) & wre & token_setup)
+        setup_value0 <= data;
+    if( (rbyte_cnt==4'h5) & wre & token_setup)
+        setup_value1 <= data;
+
+    if( (rbyte_cnt==4'h6) & wre & token_setup)
+        setup_index0 <= data;
+    if( (rbyte_cnt==4'h7) & wre & token_setup)
+        setup_index1 <= data;
+
+    if( (rbyte_cnt==4'h8) & wre & token_setup)
+        setup_len0 <= data;
+    if( (rbyte_cnt==4'h9) & wre & token_setup)
+        setup_len1 <= data;
+    
+    if(usb_reset)
+        my_addr <= 0;
+    else
+    if( (setup_request[3:0]==5) & (rbyte_cnt==4'h4) & wre & token_setup)
+        my_addr <= data[6:0];
+end
+
+wire short_cfg_desc; assign short_cfg_desc = (setup_len0[3:0]==9)&(setup_len1[3:0]==0);
+
+reg [1:0]state;
+
+reg need_send;
+
+always @*
+begin
+    need_send = 1'b0;
+    ufm_addr  = 0;
+    
+    if(state==0)
+    begin
+        if( pid_data & (token_setup | token_out) ) // (0x4b or 0xc3) and (0x2d and 0xE1) 
+        begin
+            ufm_addr  = 9'h098;
+            need_send = 1'b1;
+        end
+        else
+        if( token_in&(setup_request[3:0]==4'h6) & (~setup_toggle[2]))
+        begin
+            ufm_addr  = {setup_value1[1:0],setup_value0[1],setup_value0[0]|short_cfg_desc,setup_toggle[1:0],3'b000};
+            need_send = 1'b1;
+        end
+        else
+        if(token_in)
+        begin
+            if(endp)
+                ufm_addr  = {2'b00,poll_data_f[3:0],toggle,2'b00};
+            else
+                ufm_addr  = 9'h09c;
+            need_send = 1'b1;
+        end
+    end
+
+    sbyte = pkt_byte;
+    ufm_addr_wr = need_send & (state==0) & (!EOP);
+    ufm_addr_inc = show_next & (!last_pkt_byte_in) & (state==3);
+    last_pkt_byte = last_pkt_byte_in;
+    start_pkt = (state==2);
+end
+
+reg addr_zero_ok;
+always @(posedge clk)
+    if(usb_reset)
+        addr_zero_ok <= 1'b1;
+    else
+    if(state==0 && token_in && (~endp) )
+        addr_zero_ok <= 1'b0;
+
+always @(posedge clk)
+begin
+    if(EOP)
+    begin
+        //kind of reset
+        state <= 0;
+    end
+    else
+    begin
+        case(state)
+        0:
+        begin
+            //at this state (just after EOP received) decide to send or not to send
+            
+            if(need_send)
+                state <= 1;
+            else
+                state <= 3;
+            
+            //    state <= {~need_send,1'b1};
+        end
+        1:
+        begin
+            //initiate send packet
+            if(pkt_byte_ready)
+                state <= 2;
+        end
+        2:
+        begin
+            state <= 3;
+        end
+        3:
+        begin
+            //do nothing
+            state <= 3;
+        end
+        endcase
+    end
+end
+
+endmodule

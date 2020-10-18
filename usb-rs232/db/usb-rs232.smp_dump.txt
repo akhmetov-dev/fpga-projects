@@ -1,0 +1,5 @@
+
+State Machine - |uart_transmit|TxEnable
+Name TxEnable.01 
+TxEnable.00 0 
+TxEnable.01 1 

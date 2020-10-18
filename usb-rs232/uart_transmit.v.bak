@@ -1,0 +1,55 @@
+module test_uart(clk,Tx,button);
+input clk;
+output reg Tx=1'b1;
+input button;
+ 
+reg [1:0] TxEnable = 1'b0;
+reg [1:0] btnFlag = 1'b0;
+reg [11:0] count = 1'b0;
+reg [9:0] data = 10'b1001100000;  
+reg [4:0] i= 1'b0;
+reg [23:0] delay = 0;
+ 
+always @ (button)
+begin
+	if(button == 1)
+		btnFlag <= 1'b0;
+	else
+	begin
+		btnFlag <= 1'b1;
+	end
+end
+ 
+always @ (posedge clk) 
+begin
+	if(btnFlag == 1'b1) //если нажата
+	begin
+		delay <= delay + 1'b1; //увеличиваем счетчик
+	end
+	if((btnFlag == 1'b0) &&(delay > 0)) //если не нажата
+	begin
+		delay <= delay - 1'b1; //уменьшаем счетчик
+	end 
+	if(delay == 16000000) //если счетчик досчитал до устойчивого нажатия
+	begin
+		TxEnable <= 1'b1; //разрешаем передачу
+	end
+	if(TxEnable == 1'b1) //если разрешено, то отправляем
+	begin
+		count <= count + 1'b1;
+		if(count == 868)
+		begin
+			Tx <= data[i];
+			count <= 0;
+			i <= i + 1;
+			if(i > 9)
+			begin
+				i <= 0;
+				Tx <=1'b1;
+				TxEnable <= 1'b0; //запрещаем повторную отправку
+			end
+		end
+	end
+end
+
+endmodule

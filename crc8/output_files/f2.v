@@ -16,7 +16,7 @@ always @(posedge clk)
 begin
 	if (flag == 0)
 	begin
-		if (counter <= 8)
+		if (counter < 8)
 		begin
 			if (data <= 127)
 			begin

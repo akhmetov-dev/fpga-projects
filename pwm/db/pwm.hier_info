@@ -1,0 +1,18 @@
+|pwm
+clk => leds[3]~reg0.CLK
+clk => leds[2]~reg0.CLK
+clk => leds[1]~reg0.CLK
+clk => leds[0]~reg0.CLK
+clk => pwm_counter[6].CLK
+clk => pwm_counter[5].CLK
+clk => pwm_counter[4].CLK
+clk => pwm_counter[3].CLK
+clk => pwm_counter[2].CLK
+clk => pwm_counter[1].CLK
+clk => pwm_counter[0].CLK
+leds[3] <= leds[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[2] <= leds[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[1] <= leds[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+leds[0] <= leds[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
